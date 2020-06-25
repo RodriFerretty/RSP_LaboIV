@@ -1,0 +1,32 @@
+<div class="products-table">
+<div class="row">
+  <div class="col">
+    <input
+      type="text"
+      (input)="onSearchChange($event.target.value)"
+      placeholder="Buscar..."
+    />
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Local</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filteredProducts" [ngClass]="(product.stock > 3)?'text':'text-danger'">
+      <th scope="row">{{product.nombre | titlecase}}</th>
+      <td>{{product.marca | titlecase}}</td>
+      <td>{{product.precio | currency}}</td>
+      <td>{{product.local | titlecase}}</td>
+      <td>Boton Editar</td>
+    </tr>
+  </tbody>
+</table>
+</div>

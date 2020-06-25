@@ -14,6 +14,8 @@ import { SignUpComponent } from './components/session/sign-up/sign-up.component'
 import { LoginComponent } from './components/session/login/login.component';
 import { CreateLocalComponent } from './components/local/create-local/create-local.component';
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
+import { HomeComponent } from './components/home/home/home.component';
+import { ProductsTableComponent } from './components/home/products-table/products-table.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CreateProductComponent } from './components/product/create-product/crea
     SignUpComponent,
     LoginComponent,
     CreateLocalComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    HomeComponent,
+    ProductsTableComponent
   ],
   imports: [
     BrowserModule,
