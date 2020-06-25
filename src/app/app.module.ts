@@ -9,10 +9,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SessionComponent } from './components/session/session/session.component';
+import { SignUpComponent } from './components/session/sign-up/sign-up.component';
+import { LoginComponent } from './components/session/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SessionComponent,
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
