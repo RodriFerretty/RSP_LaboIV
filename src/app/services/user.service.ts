@@ -15,13 +15,13 @@ export class UserService {
                 //authService.getCurrentUser returns an Observable of afAuth.authState. Sets currentUser on login
                 authService.getCurrentUser().subscribe(currentUser => {
                   if (currentUser) {
-                    console.log("Seteo de currentUser en UserService: ", currentUser)
+                    // console.log("Seteo de currentUser en UserService: ", currentUser)
                     this.getLoggedInUser(currentUser.uid).subscribe(loggedInUser => {
-                      console.log("Seteo de currentUser en UserService: ", loggedInUser)
+                      // console.log("Seteo de currentUser en UserService: ", loggedInUser)
                       this.currentUser = loggedInUser
                     })
                   } else {
-                    console.log("Seteo null en userService.")
+                    // console.log("Seteo null en userService.")
                     this.currentUser = null
                   }
                 });
@@ -51,9 +51,9 @@ export class UserService {
   }
 
   public logoutUser(): Promise<void> {
-    console.log("Logout user userService.")
+    // console.log("Logout user userService.")
     return this.authService.logout().then(() => {
-      console.log("userService.then del authService.logout.")
+      // console.log("userService.then del authService.logout.")
     });
   }
 

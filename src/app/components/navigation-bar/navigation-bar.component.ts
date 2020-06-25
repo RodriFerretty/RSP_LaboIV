@@ -16,7 +16,7 @@ export class NavigationBarComponent implements OnInit {
   }
 
   public isLoggedIn(): boolean {
-    console.log("this.userService.getCurrentUser(): ", this.userService.getCurrentUser())
+    // console.log("this.userService.getCurrentUser(): ", this.userService.getCurrentUser())
     return (this.userService.getCurrentUser() != null)
   }
 

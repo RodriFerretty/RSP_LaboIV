@@ -4,6 +4,8 @@ import { LocalesService } from 'src/app/services/locales.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/entities/product';
 import { Local } from 'src/app/entities/local';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -15,7 +17,10 @@ export class CreateProductComponent implements OnInit {
   public locales: String[];
   public types: String[] = ["Señuelo", "Caña", "Reel"]
 
-  constructor(private localesService: LocalesService, private productsService: ProductsService) {
+  constructor(private localesService: LocalesService, 
+    private productsService: ProductsService, 
+    private spinner: NgxSpinnerService,
+    public router: Router) {
     this.newProductForm = this.createFormGroup();
   }
 
@@ -46,8 +51,10 @@ export class CreateProductComponent implements OnInit {
     // console.log("Product form: ", this.newProductForm.value)
     var newProduct = new Product()
     newProduct = this.newProductForm.value
+    this.spinner.show()
     this.productsService.create(newProduct).then(() => {
-      //Navegar a home.
+      this.spinner.hide()
+      this.router.navigate(['home'])
     }).catch((error) => {
       window.alert(error.message)
     })

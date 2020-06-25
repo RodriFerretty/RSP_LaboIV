@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/entities/product';
 import * as jsPDF from 'jspdf'
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class ProductsTableComponent implements OnInit {
   @ViewChild('htmlData') htmlData:ElementRef;
   private allProducts = [];
   public filteredProducts = [];
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, 
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getProductsOnInit()
@@ -27,6 +29,7 @@ export class ProductsTableComponent implements OnInit {
    }
 
   getProductsOnInit() {
+    this.spinner.show()
     this.productsService.getAll().subscribe((allProducts) => {
       this.allProducts = [];
       this.filteredProducts = [];
@@ -34,6 +37,7 @@ export class ProductsTableComponent implements OnInit {
         this.allProducts.push(product);
         this.filteredProducts.push(product);
       })
+      this.spinner.hide()
     });
   }
 

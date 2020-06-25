@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(public userService: UserService) { 
+  constructor(public userService: UserService, 
+    private spinner: NgxSpinnerService,
+    public router: Router) { 
     this.loginForm = this.createFormGroup();
   }
 
@@ -37,8 +42,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn() {
+    this.spinner.show()
     this.userService.loginUser(this.model.email.value, this.model.password.value).then((result) => {
-      console.log("Result en el login component: ", result)
+      // console.log("Result en el login component: ", result)
+      this.spinner.hide()
+      this.router.navigate(['home'])
     }).catch((error) => {
       window.alert(error.message)
     })
