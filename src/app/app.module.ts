@@ -12,13 +12,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SessionComponent } from './components/session/session/session.component';
 import { SignUpComponent } from './components/session/sign-up/sign-up.component';
 import { LoginComponent } from './components/session/login/login.component';
+import { CreateLocalComponent } from './components/local/create-local/create-local.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SessionComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    CreateLocalComponent
   ],
   imports: [
     BrowserModule,

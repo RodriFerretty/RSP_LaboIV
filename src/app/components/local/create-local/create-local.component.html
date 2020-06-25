@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <h3 class="row justify-content-center">Registrar nuevo local</h3>
+            <form [formGroup]="newLocalForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control" />
+                    <small *ngIf="model.nombre.errors?.required">El nombre es requerido</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" />
+                    <small *ngIf="model.email.errors?.required">El email es requerido</small>
+                    <small *ngIf="model.email.invalid && !model.email.errors?.required">El email es inválido</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="text" formControlName="telefono" class="form-control" />
+                    <small *ngIf="model.telefono.errors?.required">El telefono es inválido</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="localidad">Localidad</label>
+                    <input type="text" formControlName="localidad" class="form-control" />
+                    <small *ngIf="model.localidad.errors?.required">La localidad es requerida</small>
+                </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-success" [disabled]="!newLocalForm.valid">Registrar
+                        nuevo local</button>
+                </div>
+                <br>
+            </form>
+      </div>
+    </div>
+  </div>
+  
