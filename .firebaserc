@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "practicaconcesionaria": {
+      "hosting": {
+        "RSP": [
+          "practicaconcesionaria"
+        ]
+      }
+    }
+  }
+}
