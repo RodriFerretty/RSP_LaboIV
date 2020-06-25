@@ -16,6 +16,7 @@ import { CreateLocalComponent } from './components/local/create-local/create-loc
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { ProductsTableComponent } from './components/home/products-table/products-table.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductsTableComponent } from './components/home/products-table/product
     CreateLocalComponent,
     CreateProductComponent,
     HomeComponent,
-    ProductsTableComponent
+    ProductsTableComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
+    <a class="navbar-brand" routerLink="'.'">R.S.P</a>
+
+    <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+    </button>
+
+    <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li *ngIf="isLoggedIn()" class="nav-item active">
+                <a class="nav-link" routerLink="home" (click)="isMenuCollapsed = true">Home</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="addLocal" (click)="isMenuCollapsed = true">Cargar Local</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="addProduct" (click)="isMenuCollapsed = true">Cargar Producto</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="map" (click)="isMenuCollapsed = true">Ver Mapa</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="isLoggedIn()" class="nav-item">
+              <a href="" class="nav-link">{{getDisplayName()}}</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a href="" class="nav-link">Favoritos</a>
+            </li> -->
+            <li *ngIf="isLoggedIn()" class="nav-item">
+              <a href="" class="nav-link" (click)="userService.logoutUser()">LogOut</a>
+            </li>
+            
+          </ul>
+    </div>
+</nav>
